@@ -72,7 +72,10 @@ const availableBooks = books.filter((book) => book.available === true)
 console.log(availableBooks)
 
 const discountedBooks = availableBooks.map((book)=>{
-   return book.price.slice(0,-1)*0.80
+   return book.price.slice(0,-1)*0.80 + "$"
 
 })
 console.log(discountedBooks)
+
+const fullPricedBook = discountedBooks.find((price) => !price.includes("."))
+console.log(fullPricedBook)
