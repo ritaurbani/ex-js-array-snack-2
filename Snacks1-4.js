@@ -58,6 +58,7 @@ const books = [
 // console.log(longBooks)
 // const longBooksTitles = longBooks.map((book) => book.title)
 // console.log(longBooksTitles)
+//longBooksTitles.forEach(title => console.log(title))//OGNI TITOLO SINGOLARMENTE
 
 //2.
 
@@ -71,6 +72,7 @@ const books = [
 // const availableBooks = books.filter((book) => book.available === true)
 // console.log(availableBooks)
 
+//Mia Versione
 // const discountedBooks = availableBooks.map((book)=>{
 //     // const {price} = book
 //     const discountedPrice = Number(book.price.slice(0,-1)) * 0.80
@@ -81,7 +83,28 @@ const books = [
 // const fullPricedBook = discountedBooks.find((price) => !price.includes("."))
 // console.log(fullPricedBook)
 
-// Math.trunc(number) === number
+//HYUR VERSION
+
+const discountedBooks = availableBooks.map(book => {
+    //parseFloat-converte in numero con virgola
+    const price = parseFloat(book.price.replace("€", ""))
+    const discountedPrice = (price * .8).toFixed(2)//torna stringa e max 2 decimali
+    return {
+        ...book, price: `${discountedPrice}€`
+        }
+})
+console.log(discountedBooks)
+//////////
+// const fullPricedBook = discountedBooks.find((book) => {
+    //ESTRARRE PREZZO
+    //const price = parseFloat(book.price.replace("€", ""))
+    //prezzo intero se divido per 1 non ha resto
+   // return price % 1 === 0; // return Number.isInteger(price)
+
+// }
+// console.log(fullPricedBook)
+
+
 
 //3.
 
@@ -90,15 +113,23 @@ const books = [
 // Crea una variabile booleana(areAuthorsAdults) per verificare se gli autori sono tutti maggiorenni.
 // Ordina l’array authors in base all’età, senza creare un nuovo array.
 // (se areAuthorsAdult è true, ordina in ordine crescente, altrimenti in ordine decrescente)
+//Sort e manipolativo quindi non serve creare nuovo array
 
 //ESECUZIONE
 // const authors = books.map((book) => book.author)
 // console.log(authors)
 
-// const areAuthorsAdults = authors.every((author) => author.age > 18)
-// console.log(areAuthorsAdults)
+const areAuthorsAdults = authors.every((author) => author.age > 18)
+console.log(areAuthorsAdults)
+if (areAuthorsAdults){
+    authors.sort((a, b) => a.age - b.age)
+}else {
+    authors.sort((a, b) => b.age - a.age)
+}
+console.log(authors)
 
-// console.log(authors.sort((a, b) => a.age - b.age))
+
+
 // authors.sort((a,b) => a.name.localeCompare(b.name))
 // console.log(authors)
 

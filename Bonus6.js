@@ -58,8 +58,18 @@ const books = [
 const areThereAvailableBooks = books.some((book) => book.available === true)
 console.log(areThereAvailableBooks)
 
-const booksByPrice = books.map((book) => book.price.slice(0,-1)).sort((a,b) => a - b)
+//ordinare array e salvare versione ordinata da un altra parte
+const booksByPrice = books.sort((a,b) => {
+    priceA = parseFloat(a.price.replace("€", ""))
+    priceB = parseFloat(b.price.replace("€", ""))
+    return priceA - priceB //adesso sono valori numerici
+}) 
 console.log(booksByPrice)
-
-books.sort((a, b) => b.available - a.available)
-console.log(books)
+console.log(books, booksByPrice)//ordinati nella stessa maniera
+//per evitare questo > duplicare array di libri quando lo ordiniamo
+//creo nuovo array dove faccio spread di books
+//se vuoi ordinare l array salvandone uno nuovo e mandenendo quello vecchio immutato
+//dobbiamo ritornare un valore che sia 1, -1, 0 (no booleano)
+booksByPrice.sort((a,b) =>a.available? -1 : 1)
+// booksByPrice.sort((a,b) =>a.available === b.available? 0 : a.available? -1:1)
+console.log(booksByPrice)
