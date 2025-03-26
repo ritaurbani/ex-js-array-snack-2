@@ -72,12 +72,16 @@ const books = [
 // console.log(availableBooks)
 
 // const discountedBooks = availableBooks.map((book)=>{
-//    return book.price.slice(0,-1)*0.80 + "$"
+//     // const {price} = book
+//     const discountedPrice = Number(book.price.slice(0,-1)) * 0.80
+//    return discountedPrice + "$"
 // })
 // console.log(discountedBooks)
 
 // const fullPricedBook = discountedBooks.find((price) => !price.includes("."))
 // console.log(fullPricedBook)
+
+// Math.trunc(number) === number
 
 //3.
 
