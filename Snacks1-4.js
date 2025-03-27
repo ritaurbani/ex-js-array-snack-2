@@ -89,16 +89,16 @@ const discountedBooks = availableBooks.map(book => {
     //parseFloat-converte in numero con virgola
     const price = parseFloat(book.price.replace("€", ""))
     const discountedPrice = (price * .8).toFixed(2)//torna stringa e max 2 decimali
-    return {
-        ...book, price: `${discountedPrice}€`
-        }
+    return {//ritorniamo tutte le proprieta precedenti di books, cambia solo prezzo
+        ...book, price: `${discountedPrice}€`//sovrascrivo solo nuovo prezzo scontato
+        }//ritorno nuovo array books che hai prezzo libri scontati
 })
 console.log(discountedBooks)
 //////////
 // const fullPricedBook = discountedBooks.find((book) => {
     //ESTRARRE PREZZO
     //const price = parseFloat(book.price.replace("€", ""))
-    //prezzo intero se divido per 1 non ha resto
+    //Vedere se e prezzo intero: prezzo intero se divido per 1 non ha resto
    // return price % 1 === 0; // return Number.isInteger(price)
 
 // }
@@ -121,6 +121,7 @@ console.log(discountedBooks)
 
 const areAuthorsAdults = authors.every((author) => author.age > 18)
 console.log(areAuthorsAdults)
+// authors.sort((a,b) => (a.age - b.age) * (areAuthorsAdults? 1 : -1))
 if (areAuthorsAdults){
     authors.sort((a, b) => a.age - b.age)
 }else {
