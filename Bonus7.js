@@ -51,3 +51,20 @@ const books = [
 // Usa reduce per creare un oggetto(tagCounts) che conta quante volte 
 // ogni tag viene usato tra i libri.
 
+//ESECUZIONE
+//tagCounts = {
+// tagName: numUsato}
+//acc valore accumulated at every cycle - per evitare che ad ogni iterazione si riparte da zero - deve essere returned ogni volta
+
+const tagCounts = books.reduce((acc, curBook) => {
+    curBook.tags.forEach((tag) => {
+        if(!acc[tag]){
+            acc[tag] = 0
+        }
+        acc[tag] ++;
+    })
+
+    return acc
+}, {})
+console.log(tagCounts)
+
