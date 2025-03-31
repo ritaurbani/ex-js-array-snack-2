@@ -72,7 +72,6 @@ const books = [
 // const availableBooks = books.filter((book) => book.available === true)
 // console.log(availableBooks)
 
-
 // const availableBooks = books.filter((book) => book.available)
 // console.log(availableBooks)
 
@@ -83,7 +82,6 @@ const books = [
 //     console.log(discountedPrice)
 //     return { ...book, price: discountedPrice }
 // })
-
 // console.log(discountedBooks)
 
 // const fullPricedBook = discountedBooks.find((book) => {
@@ -92,7 +90,6 @@ const books = [
 // return price % 1 === 0      
 // }
 //  )
-
 // console.log(fullPricedBook)
 
 
@@ -117,8 +114,6 @@ const books = [
 // }
 // console.log(fullPricedBook)
 
-
-
 //3.
 
 // Snack 3 - Ordinare gli Autori
@@ -132,17 +127,15 @@ const books = [
 // const authors = books.map((book) => book.author)
 // console.log(authors)
 
-const areAuthorsAdults = authors.every((author) => author.age > 18)
-console.log(areAuthorsAdults)
-// authors.sort((a,b) => (a.age - b.age) * (areAuthorsAdults? 1 : -1))
-if (areAuthorsAdults){
-    authors.sort((a, b) => a.age - b.age)
-}else {
-    authors.sort((a, b) => b.age - a.age)
-}
-console.log(authors)
-
-
+// const areAuthorsAdults = authors.every((author) => author.age > 18)
+// console.log(areAuthorsAdults)
+// // authors.sort((a,b) => (a.age - b.age) * (areAuthorsAdults? 1 : -1))
+// if (areAuthorsAdults){
+//     authors.sort((a, b) => a.age - b.age)
+// }else {
+//     authors.sort((a, b) => b.age - a.age)
+// }
+// console.log(authors)
 
 // authors.sort((a,b) => a.name.localeCompare(b.name))
 // console.log(authors)
@@ -161,9 +154,12 @@ console.log(authors)
 // const agesSum = ages.reduce((acc, curr) => {
 //     return acc + curr
 // },0)
+// console.log(ageSum)
 
-// const ageAvg = agesSum/ages.length
-// console.log(ageAvg)
+// const ageAvg = ages.reduce((acc, curr) => {
+//     return (acc + curr)
+// }, 0)
+// console.log(ageAvg / ages.length)
 
 
 
