@@ -55,21 +55,22 @@ const books = [
 // Ordina l’array booksByPrice in base alla disponibilità (prima quelli disponibili), 
 // senza creare un nuovo array.
 
-const areThereAvailableBooks = books.some((book) => book.available === true)
-console.log(areThereAvailableBooks)
+//ESECUZIONE
 
-//ordinare array e salvare versione ordinata da un altra parte
-const booksByPrice = books.sort((a,b) => {
-    //turn them into valori numerici estraendo numero
-    priceA = parseFloat(a.price.replace("€", ""))
-    priceB = parseFloat(b.price.replace("€", ""))
-    return priceA - priceB //adesso sono valori numerici
-}) 
-console.log(booksByPrice)
+// const areThereAvailableBooks = books.some((book) => book.available === true)
+// console.log(areThereAvailableBooks)
+
+// const booksByPrice = books.sort((a, b) => {
+//     orderedPrice = parseFloat(a.price.slice(0, -1)) - parseFloat(b.price.slice(0, -1))
+//     return orderedPrice
+// })
+// console.log(booksByPrice)
+
 console.log(books, booksByPrice)//ordinati nella stessa maniera
 //per evitare questo > duplicare array di libri quando lo ordiniamo
 //creo nuovo array dove faccio spread di books
 //ha senso se vuoi ordinare l array salvandone uno nuovo e mandenendo quello vecchio immutato
+
 //dobbiamo ritornare un valore che sia 1, -1, 0 (no booleano)
 booksByPrice.sort((a,b) => a.available? -1 : 1)
 // booksByPrice.sort((a,b) =>a.available === b.available? 0 : a.available? -1:1)
