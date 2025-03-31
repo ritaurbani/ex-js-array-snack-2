@@ -58,7 +58,7 @@ const books = [
 // console.log(longBooks)
 // const longBooksTitles = longBooks.map((book) => book.title)
 // console.log(longBooksTitles)
-//longBooksTitles.forEach(title => console.log(title))//OGNI TITOLO SINGOLARMENTE
+//books.forEach(book => console.log(book.title))//OGNI TITOLO SINGOLARMENTE
 
 //2.
 
@@ -72,28 +72,41 @@ const books = [
 // const availableBooks = books.filter((book) => book.available === true)
 // console.log(availableBooks)
 
-//Mia Versione
-// const discountedBooks = availableBooks.map((book)=>{
-//     // const {price} = book
-//     const discountedPrice = Number(book.price.slice(0,-1)) * 0.80
-//    return discountedPrice + "$"
+
+// const availableBooks = books.filter((book) => book.available)
+// console.log(availableBooks)
+
+// const discountedBooks = books.map((book) => {
+//     const price = Number(book.price.slice(0, -1))
+//     const discountedPrice = (price * 0.80).toFixed(2) + "$"
+//     console.log(price)
+//     console.log(discountedPrice)
+//     return { ...book, price: discountedPrice }
 // })
+
 // console.log(discountedBooks)
 
-// const fullPricedBook = discountedBooks.find((price) => !price.includes("."))
+// const fullPricedBook = discountedBooks.find((book) => {
+// const price = parseFloat(book.price.slice(0, -1))
+// console.log(price)
+// return price % 1 === 0      
+// }
+//  )
+
 // console.log(fullPricedBook)
+
 
 //HYUR VERSION
 
-const discountedBooks = availableBooks.map(book => {
-    //parseFloat-converte in numero con virgola
-    const price = parseFloat(book.price.replace("€", ""))
-    const discountedPrice = (price * .8).toFixed(2)//torna stringa e max 2 decimali
-    return {//ritorniamo tutte le proprieta precedenti di books, cambia solo prezzo
-        ...book, price: `${discountedPrice}€`//sovrascrivo solo nuovo prezzo scontato
-        }//ritorno nuovo array books che hai prezzo libri scontati
-})
-console.log(discountedBooks)
+// const discountedBooks = availableBooks.map(book => {
+//     //parseFloat-converte in numero con virgola
+//     const price = parseFloat(book.price.replace("€", ""))
+//     const discountedPrice = (price * .8).toFixed(2)//torna stringa e max 2 decimali
+//     return {//ritorniamo tutte le proprieta precedenti di books, cambia solo prezzo
+//         ...book, price: `${discountedPrice}€`//sovrascrivo solo nuovo prezzo scontato
+//         }//ritorno nuovo array books che hai prezzo libri scontati
+// })
+// console.log(discountedBooks)
 //////////
 // const fullPricedBook = discountedBooks.find((book) => {
     //ESTRARRE PREZZO
